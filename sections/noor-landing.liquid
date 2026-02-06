@@ -1,0 +1,94 @@
+{{ 'noor-and-knot.css' | asset_url | stylesheet_tag }}
+
+<section class="noor-wrap">
+  <div class="noor-hero">
+    <div>
+      <span class="noor-pill">{{ section.settings.tagline }}</span>
+      <h1 class="noor-title">{{ section.settings.heading }}</h1>
+      <p class="noor-subtitle">{{ section.settings.subheading }}</p>
+      <div class="noor-cta-row">
+        <a class="noor-btn noor-btn-primary" href="{{ section.settings.whatsapp_url }}" target="_blank" rel="noopener">Order on WhatsApp</a>
+        <a class="noor-btn noor-btn-secondary" href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener">View Instagram</a>
+      </div>
+    </div>
+    <div class="noor-media-grid">
+      <img class="noor-main" src="{{ 'noor-1.jpg' | asset_url }}" alt="Noor and Knot hero" loading="eager">
+      <img class="noor-small" src="{{ 'noor-2.jpg' | asset_url }}" alt="Noor and Knot product" loading="lazy">
+      <img class="noor-small" src="{{ 'noor-3.jpg' | asset_url }}" alt="Noor and Knot product" loading="lazy">
+    </div>
+  </div>
+
+  <h2 class="noor-section-title">Most-Loved Pieces</h2>
+  <div class="noor-products">
+    {% for block in section.blocks %}
+      <article class="noor-card" {{ block.shopify_attributes }}>
+        {% if block.settings.image != blank %}
+          {{ block.settings.image | image_url: width: 800 | image_tag: class: 'noor-product-image', loading: 'lazy' }}
+        {% else %}
+          <img
+            class="noor-product-image"
+            src="{% case forloop.index %}{% when 1 %}{{ 'noor-1.jpg' | asset_url }}{% when 2 %}{{ 'noor-2.jpg' | asset_url }}{% when 3 %}{{ 'noor-3.jpg' | asset_url }}{% when 4 %}{{ 'noor-4.jpg' | asset_url }}{% else %}{{ 'noor-5.jpg' | asset_url }}{% endcase %}"
+            alt="{{ block.settings.title | escape }}"
+            loading="lazy"
+          >
+        {% endif %}
+        <div class="noor-product-body">
+          <h3 class="noor-product-title">{{ block.settings.title }}</h3>
+          <p class="noor-product-desc">{{ block.settings.description }}</p>
+          <p class="noor-product-meta">{{ block.settings.attribute }}</p>
+          <div class="noor-product-footer">
+            <span class="noor-price">{{ block.settings.price }}</span>
+            <a class="noor-btn noor-btn-secondary" href="{{ section.settings.whatsapp_url }}" target="_blank" rel="noopener">Order via WhatsApp</a>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+
+  <div class="noor-mini-strip">
+    <h2 class="noor-section-title">See the latest drops</h2>
+    <div class="noor-mini-grid">
+      <img src="{{ 'noor-4.jpg' | asset_url }}" alt="Noor and Knot gallery" loading="lazy">
+      <video src="{{ 'noor-video-1.mp4' | asset_url }}" autoplay muted loop playsinline preload="metadata"></video>
+      <img src="{{ 'noor-5.jpg' | asset_url }}" alt="Noor and Knot gallery" loading="lazy">
+      <video src="{{ 'noor-video-2.mp4' | asset_url }}" autoplay muted loop playsinline preload="metadata"></video>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Noor Landing",
+  "settings": [
+    { "type": "text", "id": "tagline", "label": "Tagline", "default": "Handmade with barakah." },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Handmade Crochet Pouches for Everyday & Eid" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Islamic-inspired details, custom colors, and clean structured finish for gifting and everyday essentials." },
+    { "type": "url", "id": "whatsapp_url", "label": "WhatsApp URL" },
+    { "type": "url", "id": "instagram_url", "label": "Instagram URL" }
+  ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Product card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Drawstring Pouch" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Elegant crochet pouch for daily essentials and gifting." },
+        { "type": "text", "id": "attribute", "label": "Attribute line", "default": "Pearl detail • Drawstring" },
+        { "type": "text", "id": "price", "label": "Price", "default": "From INR 1,500" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Noor Landing",
+      "blocks": [
+        { "type": "product_card", "settings": { "title": "Drawstring Pouch", "description": "Elegant crochet pouch for daily essentials and gifting.", "attribute": "Pearl detail • Drawstring", "price": "From INR 1,500" } },
+        { "type": "product_card", "settings": { "title": "Phone Pouch", "description": "Structured fit with secure closure and a clean profile.", "attribute": "Secure strap • Everyday carry", "price": "From INR 1,700" } },
+        { "type": "product_card", "settings": { "title": "Mini Clutch / Wallet", "description": "Compact clutch for cards, cash, and elegant everyday carry.", "attribute": "Compact fit • Neat finish", "price": "From INR 1,350" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
