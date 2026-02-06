@@ -1,71 +1,246 @@
 .noor-wrap {
   --sand: #f6f1e7;
   --taupe: #8b7e74;
+  --sage: #8fae9b;
   --charcoal: #1f1f1f;
   --gold: #c8a24a;
-  max-width: 1200px;
+  --panel: #fffdf8;
+  max-width: 132rem;
   margin: 0 auto;
-  padding: 2.5rem 1rem;
+  padding: 5.2rem 1.6rem 4.2rem;
   color: var(--charcoal);
+  font-family: "Inter", "Avenir Next", "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top right, rgba(200, 162, 74, 0.12), transparent 35%);
 }
-.noor-card {
-  background: #fff;
-  border: 1px solid rgba(31, 31, 31, 0.08);
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 30px rgba(31, 31, 31, 0.08);
-  overflow: hidden;
+
+.noor-wrap * {
+  box-sizing: border-box;
 }
+
+.noor-wrap a {
+  transition: all 180ms ease;
+}
+
 .noor-hero {
   display: grid;
-  gap: 1rem;
+  gap: 1.6rem;
   grid-template-columns: 1fr;
-  margin-bottom: 2rem;
+  margin-bottom: 3.2rem;
 }
+
 .noor-pill {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   border-radius: 999px;
   border: 1px solid rgba(200, 162, 74, 0.5);
-  background: rgba(255, 255, 255, 0.7);
-  padding: 0.35rem 0.9rem;
-  font-size: 0.73rem;
+  background: rgba(255, 255, 255, 0.82);
+  padding: 0.6rem 1.3rem;
+  font-size: 1.1rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--taupe);
 }
-.noor-title { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.05; margin: 0.7rem 0; }
-.noor-subtitle { color: rgba(31, 31, 31, 0.74); max-width: 54ch; }
-.noor-cta-row { display: flex; gap: 0.7rem; flex-wrap: wrap; margin-top: 1rem; }
+
+.noor-title {
+  margin: 1rem 0;
+  font-size: clamp(3.4rem, 6.2vw, 6.2rem);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+}
+
+.noor-subtitle {
+  margin: 0;
+  max-width: 48ch;
+  color: rgba(31, 31, 31, 0.72);
+  font-size: 1.7rem;
+  line-height: 1.55;
+}
+
+.noor-cta-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.8rem;
+}
+
 .noor-btn {
   border-radius: 999px;
-  padding: 0.72rem 1.15rem;
-  font-weight: 600;
+  padding: 1rem 1.6rem;
+  font-weight: 700;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
+  line-height: 1;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  min-height: 4.4rem;
 }
-.noor-btn-primary { background: var(--charcoal); color: var(--sand); }
-.noor-btn-secondary { background: rgba(255,255,255,0.7); color: var(--charcoal); border: 1px solid rgba(139, 126, 116, 0.35); }
-.noor-media-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-.noor-media-grid img { width: 100%; height: 100%; object-fit: cover; border-radius: 1rem; }
-.noor-media-grid .noor-main { grid-column: span 2; aspect-ratio: 4/3; }
-.noor-media-grid .noor-small { aspect-ratio: 1/1; }
-.noor-section-title { margin: 0 0 1rem; font-size: 1.9rem; letter-spacing: -0.02em; }
-.noor-products { display: grid; gap: 1rem; grid-template-columns: 1fr; }
-.noor-product-image { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
-.noor-product-body { padding: 1rem 1rem 1.1rem; display: grid; gap: 0.45rem; }
-.noor-product-title { margin: 0; font-size: 1.2rem; }
-.noor-product-desc { margin: 0; color: rgba(31,31,31,0.72); }
-.noor-product-meta { margin: 0; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--taupe); }
-.noor-product-footer { margin-top: 0.4rem; display: grid; gap: 0.55rem; }
-.noor-price { color: var(--taupe); font-weight: 600; }
-.noor-mini-strip { margin-top: 2.5rem; }
-.noor-mini-grid { display: grid; gap: 0.7rem; grid-template-columns: repeat(2, 1fr); }
-.noor-mini-grid img, .noor-mini-grid video { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 1rem; }
-@media (min-width: 900px) {
-  .noor-wrap { padding: 4rem 1.2rem; }
-  .noor-hero { grid-template-columns: 1.05fr 0.95fr; gap: 1.4rem; }
-  .noor-products { grid-template-columns: repeat(3, 1fr); }
-  .noor-product-footer { grid-template-columns: 1fr auto; align-items: center; }
-  .noor-mini-grid { grid-template-columns: repeat(4, 1fr); }
+
+.noor-btn-primary {
+  background: var(--charcoal);
+  color: var(--sand);
+  border: 1px solid var(--charcoal);
+}
+
+.noor-btn-primary:hover {
+  background: #000;
+  transform: translateY(-1px);
+}
+
+.noor-btn-secondary {
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--charcoal);
+  border: 1px solid rgba(139, 126, 116, 0.35);
+}
+
+.noor-btn-secondary:hover {
+  border-color: rgba(200, 162, 74, 0.7);
+  transform: translateY(-1px);
+}
+
+.noor-media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem;
+}
+
+.noor-media-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1.6rem;
+  border: 1px solid rgba(31, 31, 31, 0.06);
+}
+
+.noor-media-grid .noor-main {
+  grid-column: span 2;
+  aspect-ratio: 4 / 3;
+}
+
+.noor-media-grid .noor-small {
+  aspect-ratio: 1 / 1;
+}
+
+.noor-section-title {
+  margin: 0 0 1.4rem;
+  font-size: clamp(2.2rem, 2.4vw, 3.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.noor-products {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: 1fr;
+}
+
+.noor-card {
+  background: var(--panel);
+  border: 1px solid rgba(31, 31, 31, 0.08);
+  border-radius: 2rem;
+  box-shadow: 0 18px 38px rgba(31, 31, 31, 0.08);
+  overflow: hidden;
+}
+
+.noor-product-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.noor-product-body {
+  padding: 1.6rem;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.noor-product-title {
+  margin: 0;
+  font-size: 2.1rem;
+  line-height: 1.2;
+}
+
+.noor-product-desc {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: rgba(31, 31, 31, 0.72);
+}
+
+.noor-product-meta {
+  margin: 0.1rem 0 0;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--taupe);
+  font-weight: 700;
+}
+
+.noor-product-footer {
+  margin-top: 0.7rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.noor-price {
+  color: var(--taupe);
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.noor-mini-strip {
+  margin-top: 3.6rem;
+}
+
+.noor-mini-grid {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.noor-mini-grid img,
+.noor-mini-grid video {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 1.4rem;
+  border: 1px solid rgba(31, 31, 31, 0.06);
+}
+
+@media (min-width: 750px) {
+  .noor-wrap {
+    padding-inline: 2.4rem;
+  }
+
+  .noor-products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .noor-product-footer {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+}
+
+@media (min-width: 990px) {
+  .noor-wrap {
+    padding: 6rem 2.8rem 5rem;
+  }
+
+  .noor-hero {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
+
+  .noor-products {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+  }
+
+  .noor-mini-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
